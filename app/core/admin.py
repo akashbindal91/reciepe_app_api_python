@@ -28,5 +28,14 @@ class UserAdmin(BaseUserAdmin):
     )
     # episode 33 ends
 
+    # episode 34 ends
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2')
+        }),
+    )
+    # episode 34 ends
+
 
 admin.site.register(models.User, UserAdmin)
