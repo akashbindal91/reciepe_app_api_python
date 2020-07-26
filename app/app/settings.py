@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'app',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -74,10 +76,19 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+
+    'default': { 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'reciepe_app_api_python', 
+        'USER': 'postgres', 
+        'PASSWORD': 'empire123', 
+        'HOST': 'localhost', # the missing piece of the puzzle 
+        'PORT': '5432', # optional, I don't need this since I'm using the standard port
+    } 
 }
 
 
@@ -118,3 +129,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'core.User'
